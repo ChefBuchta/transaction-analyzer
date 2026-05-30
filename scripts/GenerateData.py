@@ -27,13 +27,14 @@ def generate_transaction(tx_id: int) -> dict:
     
     # I don't care about if the person have enough money in this project, in production code there would have to be checks for that
     amount = round(random.uniform(100.0, 500000.0), 2)
+    transaction_len = 7 
     start_date = datetime(2026, 1, 1)
     random_days = random.randint(0, 364)
     random_seconds = random.randint(0, 86399)
     tx_date = start_date + timedelta(days=random_days, seconds=random_seconds)
 
     return {
-        "tx_id": f"TXN-{str(tx_id).zfill(7)}",
+        "tx_id": f"TXN-{str(tx_id).zfill(transaction_len)}",
         "source_account": source,
         "target_account": target,
         "amount": amount,
@@ -64,4 +65,4 @@ with open(csv_path, 'w', encoding='utf-8') as csv_file, \
 
     json_file.write("  ]\n}")
 
-print(f"Done! Files")
+print(f"Done! Path {json_path} and {csv_path}.")
