@@ -1,0 +1,5 @@
+*.csv
+*.json
+.clangd
+note.txt
+
